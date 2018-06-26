@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_nv_tree" model="ir.ui.view">
+            <field name="name">qlnv.tree</field>
+            <field name="model">ql.nv</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <tree string="Facility">
+                    <field name="ma"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="ngaysinh"/>
+                    <field name="gioitinh"/>
+                    <field name="cmtnd"/>
+                    <field name="mota"/>
+                    <field name="diachi"/>
+                </tree>
+            </field>
+        </record>
+        <record id="view_nv_form" model="ir.ui.view">
+            <field name="name">qlnv.form</field>
+            <field name="model">ql.nv</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="Facility">
+                    <sheet>
+                        <group col="4" name="main">
+                            <field name="ma"/>
+                            <field name="name" placeholder='What your name ? . . .'/>
+                            <field name="email" placeholder='. . . . . . . . . . .@gmail.com'/>
+                            <field name="ngaysinh"/>
+                            <field name="gioitinh"/>
+                            <field name="cmtnd"/>
+                             <field name="pbid" />
+                            <field name="mota" colspan="4" placeholder='. . . '/>
+                            <field name="diachi" colspan="4" />
+                            <field name="manytomany" colspan="4"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_nv_search" model="ir.ui.view">
+            <field name="name">qlnv.search</field>
+            <field name="model">ql.nv</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <search string="Facility">
+                    <field name="ma"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="ngaysinh"/>
+                    <field name="gioitinh"/>
+                    <field name="cmtnd"/>
+                    <field name="mota" />
+                    <field name="diachi" />
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="act_open_nv_view">
+            <field name="name">Employee Managerment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">ql.nv</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_nv_search"/>
+        </record>
+        <!--<record model="ir.actions.act_window.view" id="act_open_fms_facility_form_view">-->
+            <!--<field name="act_window_id" ref="act_open_fms_facility_view"/>-->
+            <!--<field name="sequence" eval="20"/>-->
+            <!--<field name="view_mode">form</field>-->
+            <!--<field name="view_id" ref="view_fms_facility_form"/>-->
+        <!--</record>-->
+        <!--<record model="ir.actions.act_window.view" id="act_open_fms_facility_tree_view">-->
+            <!--<field name="act_window_id" ref="act_open_fms_facility_view"/>-->
+            <!--<field name="sequence" eval="10"/>-->
+            <!--<field name="view_mode">tree</field>-->
+            <!--<field name="view_id" ref="view_fms_facility_tree"/>-->
+        <!--</record>-->
+         <menuitem id="menu_qlnv" name="Employee" sequence="1"
+          action="act_open_nv_view"/>
+    </data>
+</odoo>
